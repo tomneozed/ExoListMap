@@ -1,0 +1,11 @@
+
+public class Carte 
+{
+	private String valeur = "";
+	private String Couleur = "";
+	
+	public Carte()
+	{
+		
+	}
+}

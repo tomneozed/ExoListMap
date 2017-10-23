@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+
+public class Main 
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Carte c = new Carte();
+		ArrayList a = new ArrayList();
+		
+		a = (ArrayList) c.paquetComplet();
+		
+		for(int i = 0; i < a.size(); i++)
+		{
+			System.out.println("Carte " + i + " :  couleur :  " + ((Carte) a.get(i)).getCouleur() + " valeur : " + ((Carte) a.get(i)).getValeur());
+		}
+		
+	}
+
+}

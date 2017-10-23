@@ -1,0 +1,120 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Carte 
+{
+	CouleurEnum couleur;
+	ValeurEnum valeur;
+	
+	public Carte()
+	{
+		
+	}
+	
+	
+	public Carte(CouleurEnum c, ValeurEnum v)
+	{
+		this.couleur = c;
+		this.valeur = v;
+	}
+	
+	public void setCouleur(CouleurEnum c)
+	{
+		this.couleur = c;
+	}
+	
+	public void setValeur(ValeurEnum v)
+	{
+		this.valeur = v;
+	}
+	
+	public CouleurEnum getCouleur()
+	{
+		return this.couleur;
+	}
+	
+	public ValeurEnum getValeur()
+	{
+		return this.valeur;
+	}
+	
+	public void description()
+	{
+		System.out.println("Couleur : " + this.getCouleur() + " valeur : " + this.getValeur());
+	}
+	
+	public static List paquetComplet()
+	{
+		ArrayList paquet = new ArrayList();
+		
+		for(CouleurEnum c : CouleurEnum.values())
+		{
+			for(ValeurEnum v : ValeurEnum.values())
+			{
+				paquet.add(new Carte(c,v));
+				//System.out.println("Couleur : " + c + "  valeur : " + v);
+			}
+		}
+		return paquet;
+	}
+	
+	public HashMap distribution(List paquet)
+	{
+		HashMap<String , List<Carte>> hm = new HashMap<String, List<Carte>>();
+		
+		ArrayList j1 = new ArrayList();
+		ArrayList j2 = new ArrayList();
+		ArrayList j3 = new ArrayList();
+		ArrayList j4 = new ArrayList();
+		
+		int i = 0, j = 0;
+		for(int k = 0; k < paquet.size(); k++)
+		{
+			switch(i)
+			{
+			case 0 :
+				j1.add(j, paquet.get(k));
+				break;
+			case 1 :
+				j2.add(j, paquet.get(k));
+				break;
+			case 2 :
+				j3.add(j, paquet.get(k));
+				break;
+			case 3 :
+				j4.add(j, paquet.get(k));
+				break;
+				
+			}
+			i++;
+			if(i == 4)
+			{
+				i = 0;
+				j++;
+			}
+		}
+		hm.put("Joueur 1", j1);
+		hm.put("Joueur 2", j2);
+		hm.put("Joueur 3", j3);
+		hm.put("Joueur 4", j4);
+		
+		
+		
+		
+		
+		return hm;
+	}
+	
+	public void mainJoueur(int joueur, HashMap hm)
+	{
+		System.out.println("Joueur " + (joueur) + " :");
+		for(int l = 0; l < ((List) hm.get("Joueur 1")).size(); l++)
+		{
+			((Carte) ((List) hm.get("Joueur " + (joueur))).get(l)).description();
+		}
+	
+	}
+	
+}

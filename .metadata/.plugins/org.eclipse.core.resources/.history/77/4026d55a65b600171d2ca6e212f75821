@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Main 
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Carte c = new Carte();
+		ArrayList a = new ArrayList();
+		HashMap d = new HashMap();
+		
+		a = (ArrayList) c.paquetComplet();
+		
+		for(int i = 0; i < a.size(); i++)
+		{
+			System.out.println("Carte " + (i+1) + " :  couleur :  " + ((Carte) a.get(i)).getCouleur() + " valeur : " + ((Carte) a.get(i)).getValeur());
+		}
+		
+		d = (HashMap) c.distribution(a);
+		
+		for(int i = 0; i < d.size(); i++)
+		{
+			System.out.println(d.get("Joueur 1"));
+			((Carte) d.get(i)).description();
+		}
+		
+		
+	}
+
+}

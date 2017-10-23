@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Carte 
+{
+	CouleurEnum couleur;
+	ValeurEnum valeur;
+	
+	public Carte()
+	{
+		
+	}
+	
+	
+	public Carte(CouleurEnum c, ValeurEnum v)
+	{
+		this.couleur = c;
+		this.valeur = v;
+	}
+	
+	public static List paquetComplet()
+	{
+		ArrayList paquet = new ArrayList();
+		
+		for(CouleurEnum c : CouleurEnum.values())
+		{
+			for(ValeurEnum v : ValeurEnum.values())
+			{
+				paquet.add(new Carte(c,v));
+			}
+		}
+		return paquet;
+	}
+}
